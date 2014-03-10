@@ -98,5 +98,7 @@ describe EventsController do
 
       it { expect(response).to redirect_to(events_url) }
     end
+
+
   end
 end

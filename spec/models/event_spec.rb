@@ -6,4 +6,5 @@ describe Event do
   describe '#attendees_count' do
     its(:attendees_count) { should eql 0 }
   end
+
 end
