@@ -20,8 +20,8 @@ FactoryGirl.define do
 
 trait :with_att do
   after(:create){|event|
-
   event_participants.create << create_list(:friend, 2)
+  event_participants.create << create_list(:event, 2)
 
 
   }

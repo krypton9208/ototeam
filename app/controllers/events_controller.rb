@@ -4,6 +4,7 @@ class EventsController < AuthenticatedUser
   expose(:search){ events.search(params[:q]) }
   expose(:filtered_events){ search.result.page(params[:page]) }
 
+
   def create
     if event.save
       redirect_to event, notice: t('events.create.success')

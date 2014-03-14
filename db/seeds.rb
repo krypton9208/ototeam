@@ -4,5 +4,6 @@ ActiveRecord::Base.transaction do
   FactoryGirl.create_list(:friend, 10, creator: user)
   FactoryGirl.create_list(:group, 10, creator: user)
   FactoryGirl.create_list(:event, 10, :event_in_past, creator: user)
+  FactoryGirl.create_lsit(:event, 2, :with_att, creator: user)
   puts "User: #{user.email} Password: secret"
 end

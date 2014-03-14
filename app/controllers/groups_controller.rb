@@ -3,9 +3,12 @@ class GroupsController < AuthenticatedUser
   expose(:group, attributes: :group_params)
   expose(:search) { groups.search(params[:q]) }
   expose(:filtered_groups) { search.result.page(params[:page]) }
+  expose(:group_creator) { GroupCreator.new(self)}
+  expose(:decorated_group){ group.decorate }
+  expose(:decorated_groups){ filtered_groups.decorate}
 
   def create
-    if group.save
+    if group_creator.save
       redirect_to group, notice: t('groups.create.success')
     else
       render action: 'new'
